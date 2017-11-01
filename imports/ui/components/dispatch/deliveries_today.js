@@ -22,8 +22,8 @@ Template.deliveries_today.events({
     const phoneNumber = instance.data.phoneNumber;
     const address = instance.data.address;
     Meteor.call('confirm-availability', {
-      phoneNumber: ,
-      address:
+      phoneNumber: phoneNumber,
+      address: address
     }, (err, res) => {
       if (err) {
         alert(err);

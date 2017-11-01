@@ -13,15 +13,16 @@
           <p>Recipient phone: <a href="tel:{{ delivery.recipientPhone }}">{{ delivery.recipientPhone }}</a></p>
           <p>Special instructions: {{ delivery.specialInstructions }}</p>
           <p>Recipient availability: 
-            {{#unless delivery.recipientAvailable }}
-              {{#unless delivery.availabilityCheckSent}}
-                pending
+            {{#if delivery.recipientAvailable }}
+              Available
+            {{else}}
+              {{#if delivery.availabilityCheckSent}}
+                Pending
               {{else}}
                 <form class="confirmAvailability">
                   <button type="submit">Confirm availability</button>
                 </form>
-            {{else}}
-              Not available
+              {{/if}}
             {{/if}}
           </p>
           <p>Status: 
