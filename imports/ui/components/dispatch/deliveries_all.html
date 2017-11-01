@@ -1,0 +1,32 @@
+<template name="deliveries_all">
+  {{#if isDispatcher}}
+    <h1>All deliveries</h1>
+    {{#each delivery in deliveries}}
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">For {{ delivery.recipientName }}</h2>
+        </div>
+        <div class="panel-body">
+          <p>{{ delivery.date }}</p>
+          <p>Driver: {{ delivery.driver }}</p>
+          <p>Address: {{ delivery.address }}</p>
+          <p>Recipient phone: {{ delivery.recipientPhone }}</p>
+          <p>Special instructions: {{ delivery.specialInstructions }}</p>
+          <p>Status: 
+            {{#if delivery.started}}
+              Started
+            {{else}}
+              {{#if delivery.completed}}
+              Completed
+              {{else}}
+              Not started
+              {{/if}}
+            {{/if}}
+          </p>
+        </div>
+      </div><!-- .panel -->
+    {{/each}}
+  {{else}}
+    <h2>You don't have access to this page.</h2>
+  {{/if}}
+</template>

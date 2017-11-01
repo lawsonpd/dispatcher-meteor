@@ -1,0 +1,21 @@
+<template name="driverDeliveries">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">For {{ recipientName }}</h3>
+    </div>
+    <div class="panel-body">
+      <p>Address: <a href="https://maps.google.com/?q={{ address }} Nashville, TN">{{ address }}</a></p>
+      <p>Recipient phone number: <a href="tel:{{ recipientPhone }}">{{ recipientPhone }}</a></p>
+      <p>Special instructions: {{ specialInstructions }}</p>
+      {{#if started}}
+        <form class="completeDelivery">
+          <button type="submit">Complete delivery</button>
+        </form>
+      {{else}}
+        <form class="startDelivery">
+          <button type="submit">Start delivery</button>
+        </form>
+      {{/if}}
+    </div>
+  </div>
+</template>
