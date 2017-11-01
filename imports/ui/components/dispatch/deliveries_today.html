@@ -12,17 +12,21 @@
           <p>Address: <a href="https://maps.google.com/?q={{ delivery.address }} Nashville, TN">{{ delivery.address }}</a></p>
           <p>Recipient phone: <a href="tel:{{ delivery.recipientPhone }}">{{ delivery.recipientPhone }}</a></p>
           <p>Special instructions: {{ delivery.specialInstructions }}</p>
-          <p>Recipient availability: 
-            {{#if delivery.recipientAvailable }}
-              Available
-            {{else}}
-              {{#if delivery.availabilityCheckSent}}
-                Pending
+          <p>
+            {{#if delivery.availabilityCheckSent }}
+              {{#if delivery.availabilityPending }}
+                Recipient availability <strong>pending</strong>
               {{else}}
-                <form class="confirmAvailability">
-                  <button type="submit">Confirm availability</button>
-                </form>
+                {{#if delivery.recipientAvailable }}
+                  Recipient is <strong>available</strong>
+                {{else}}
+                  Recipient is <strong>not available</strong>
+                {{/if}}
               {{/if}}
+            {{else}}
+              <form class="confirmAvailability">
+                <button type="submit">Confirm availability</button>
+              </form>
             {{/if}}
           </p>
           <p>Status: 

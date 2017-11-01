@@ -12,7 +12,8 @@ Deliveries.schema = new SimpleSchema({
   recipientPhone: {type: String},
   specialInstructions: {type: String, optional: true},
   availabilityCheckSent: {type: Boolean, defaultValue: false},
-  recipientAvailable: {type: Boolean, optional: true},
+  // availabilityPending -> set when avail check is sent
+  // recipientAvailable -> set when avail is confirmed by recipient
   started: {type: Boolean, defaultValue: false},
   completed: {type: Boolean, defaultValue: false}
 });
