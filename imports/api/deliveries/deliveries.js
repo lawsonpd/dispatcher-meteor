@@ -11,6 +11,8 @@ Deliveries.schema = new SimpleSchema({
   address: {type: String},
   recipientPhone: {type: String},
   specialInstructions: {type: String, optional: true},
+  availabilityCheckSent: {type: Boolean},
+  recipientAvailable: {type: Boolean},
   started: {type: Boolean, defaultValue: false},
   completed: {type: Boolean, defaultValue: false}
 });
