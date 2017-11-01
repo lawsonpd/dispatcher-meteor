@@ -1,8 +1,8 @@
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Deliveries } from './deliveries.js';
 
-var twilioSid = 'ACccbc0970e6b5b4bc789062b6cd6c988b';
-var twilioAuthToken = '67c5c73297d2b5854ce51da8b0ff1723';
+var twilioSid = Meteor.settings(env.twilioSid);
+var twilioAuthToken = Meteor.settings(env.twilioAuthToken);
 var twilio = require('twilio');
 var twilio_client = new twilio(twilioSid, twilioAuthToken);
 
