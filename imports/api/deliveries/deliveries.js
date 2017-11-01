@@ -12,7 +12,7 @@ Deliveries.schema = new SimpleSchema({
   recipientPhone: {type: String},
   specialInstructions: {type: String, optional: true},
   availabilityCheckSent: {type: Boolean, defaultValue: false},
-  recipientAvailable: {type: Boolean},
+  recipientAvailable: {type: Boolean, optional: true},
   started: {type: Boolean, defaultValue: false},
   completed: {type: Boolean, defaultValue: false}
 });

@@ -19,6 +19,8 @@ Template.deliveries_today.helpers({
 
 Template.deliveries_today.events({
   'submit .confirmAvailability'(event, instance) {
+    event.preventDefault();
+    
     const phoneNumber = instance.data.phoneNumber;
     const address = instance.data.address;
     Meteor.call('confirm-availability', {
