@@ -16,3 +16,20 @@ Template.deliveries_today.helpers({
     return Deliveries.find();
   },
 });
+
+Template.deliveries_today.events({
+  'submit .confirmAvailability'(event, instance) {
+    const phoneNumber = instance.data.phoneNumber;
+    const address = instance.data.address;
+    Meteor.call('confirm-availability', {
+      phoneNumber: ,
+      address:
+    }, (err, res) => {
+      if (err) {
+        alert(err);
+      } else {
+        FlowRouter.go('Deliveries.Today');
+      }
+    });
+  }
+})
