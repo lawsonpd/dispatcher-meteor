@@ -9,7 +9,10 @@ Deliveries.schema = new SimpleSchema({
   date: {type: String},
   recipientName: {type: String},
   address: {type: String},
-  recipientPhone: {type: String},
+  recipientPhone: {
+    type: String,
+    regEx: /^[0-9]{10}$/
+  },
   specialInstructions: {type: String, optional: true},
   availabilityCheckSent: {type: Boolean, defaultValue: false},
   // availabilityPending -> set when avail check is sent
