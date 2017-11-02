@@ -32,4 +32,9 @@ Meteor.startup(() => {
   if (!dispatcher_init) {
     Accounts.createUser({ username: 'dispatcher', password: 'jb2017' });
   }
+
+  const twilio_api_auth = Accounts.findUserByUsername('twilio');
+  if (!twilio_api_auth) {
+    Accounts.createUser({ username: 'twilio', password: Meteor.settings(env.twilioIncomingPostAuth)});
+  }
 });
