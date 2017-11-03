@@ -3,3 +3,4 @@
 import './fixtures.js';
 import './register-api.js';
 import './accounts-config.js';
+import './twilio_api.js';

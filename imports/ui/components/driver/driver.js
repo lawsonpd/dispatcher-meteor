@@ -11,7 +11,10 @@ Template.driver.onCreated(function () {
 
 Template.driver.helpers({
   deliveries() {
-    return Deliveries.find().fetch();
+    d = new Date().toDateString();
+    return Deliveries.find({
+      date: { $eq: d }
+    }).fetch();
   },
 });
 

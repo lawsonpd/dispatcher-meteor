@@ -2,46 +2,7 @@
   {{#if isDispatcher}}
     <h1>Today's deliveries</h1>
     {{#each delivery in deliveries}}
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h2 class="panel-title">For {{ delivery.recipientName }}</h2>
-        </div>
-        <div class="panel-body">
-          <p>{{ delivery.date }}</p>
-          <p>Driver: {{ delivery.driver }}</p>
-          <p>Address: <a href="https://maps.google.com/?q={{ delivery.address }} Nashville, TN">{{ delivery.address }}</a></p>
-          <p>Recipient phone: <a href="tel:{{ delivery.recipientPhone }}">{{ delivery.recipientPhone }}</a></p>
-          <p>Special instructions: {{ delivery.specialInstructions }}</p>
-          <p>
-            {{#if delivery.availabilityCheckSent }}
-              {{#if delivery.availabilityPending }}
-                Recipient availability <strong>pending</strong>
-              {{else}}
-                {{#if delivery.recipientAvailable }}
-                  Recipient is <strong>available</strong>
-                {{else}}
-                  Recipient is <strong>not available</strong>
-                {{/if}}
-              {{/if}}
-            {{else}}
-              <form class="confirmAvailability">
-                <button type="submit">Confirm availability</button>
-              </form>
-            {{/if}}
-          </p>
-          <p>Status: 
-            {{#if delivery.completed}}
-              Completed
-            {{else}}
-              {{#if delivery.started}}
-              Started
-              {{else}}
-              Not started
-              {{/if}}
-            {{/if}}
-          </p>
-        </div>
-      </div><!-- .panel -->
+      {{> delivery_today delivery}}
     {{/each}}
   {{else}}
     <h2>You don't have access to this page.</h2>

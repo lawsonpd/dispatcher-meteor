@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Deliveries } from '/imports/api/deliveries/deliveries.js';
+import { Template } from 'meteor/templating';
 import './deliveries_today.html';
+import './delivery_today.html';
 
 Template.deliveries_today.onCreated(function () {
   this.autorun(() => {
@@ -17,13 +19,16 @@ Template.deliveries_today.helpers({
   },
 });
 
-Template.deliveries_today.events({
+Template.delivery_today.events({
   'submit .confirmAvailability'(event, instance) {
     event.preventDefault();
-    
-    const deliveryId = instance.data._id;
-    const phoneNumber = instance.data.phoneNumber;
-    const address = instance.data.address;
+
+    // console.log(this._id);
+
+    const deliveryId = this._id;
+    const phoneNumber = this.recipientPhone;
+    const address = this.address;
+
     Meteor.call('confirm-availability', {
       deliveryId: deliveryId,
       phoneNumber: phoneNumber,
@@ -36,4 +41,4 @@ Template.deliveries_today.events({
       }
     });
   }
-})
+});

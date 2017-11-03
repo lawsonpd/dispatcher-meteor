@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Deliveries } from '/imports/api/deliveries/deliveries.js';
 import './deliveries_all.html';
+import './delivery.html';
 
 Template.deliveries_all.onCreated(function () {
   this.autorun(() => {
