@@ -3,8 +3,7 @@
     "env": {
       "MONGO_URL": "mongodb://main:8NbXjid3MpVEDcbLBkhHdjweNwPVofEU@ds141185.mlab.com:41185/jbdb",
       "twilioSid": "ACccbc0970e6b5b4bc789062b6cd6c988b",
-      "twilioAuthToken": "67c5c73297d2b5854ce51da8b0ff1723",
-      "twilioIncomingPostAuth": "anUnANh5PCspelE55ra"
+      "twilioAuthToken": "67c5c73297d2b5854ce51da8b0ff1723"
     }
   }
 }
